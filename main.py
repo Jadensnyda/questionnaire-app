@@ -70,9 +70,19 @@ def preload_questions(db: Session):
 # Routes
 @app.get("/")
 def read_root(request: Request):
-    db = next(get_db())
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.post("/questions")
+def get_questions(request: Request, name: str = Form(...), db: Session = Depends(get_db)):
+    user = db.query(User).filter_by(name=name).first()
+    if not user:
+        user = User(name=name)
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+
     questions = db.query(Question).all()
-    return templates.TemplateResponse("index.html", {"request": request, "questions": questions})
+    return templates.TemplateResponse("questions.html", {"request": request, "user": user.name, "questions": questions})
 
 @app.post("/submit")
 async def submit_answers(request: Request, db: Session = Depends(get_db)):

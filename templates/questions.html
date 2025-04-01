@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Questionnaire</title>
+  <title>Client Questions</title>
   <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Client Intake Form</h1>
+  <div class="form-wrapper">
+    <h1>Client Questionnaire</h1>
     <form action="/submit" method="post">
       <input type="hidden" name="name" value="{{ user }}">
       {% for question in questions %}
-        <div class="question-block">
-          <label>{{ question.text }}</label>
-          <input type="text" name="question_{{ question.id }}" required>
-        </div>
+        <label>{{ question.text }}</label>
+        <input type="text" name="question_{{ question.id }}" required>
       {% endfor %}
       <button type="submit">Submit</button>
     </form>
