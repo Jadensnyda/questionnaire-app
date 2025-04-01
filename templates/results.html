@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Answers</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <form>
+        <h1>Client Submissions</h1>
+
+        {% for user in results %}
+            <div class="question">
+                <h2>{{ user.name }}</h2>
+                <ul>
+                {% for a in user.answers %}
+                    <li><strong>{{ a.question }}:</strong> {{ a.answer }}</li>
+                {% endfor %}
+                </ul>
+                <hr>
+            </div>
+        {% endfor %}
+    </form>
+</body>
+</html>
