@@ -1,27 +1,14 @@
-/* General */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    color: #333;
-  }
-  
-  /* Form container */
-  form {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    max-width: 600px;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
   /* Headings */
   h1, h2 {
     text-align: center;
