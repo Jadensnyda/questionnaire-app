@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Client Questionnaire</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <title>Client Intake Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to the Questionnaire</h1>
-    <form action="/questions" method="post">
-      <label for="name">Enter your name:</label>
-      <input type="text" name="name" id="name" required>
-      <button type="submit">Start</button>
-    </form>
-  </div>
+    <div class="form-wrapper">
+        <h1>Welcome to Snyder Financial Services Client Intake Form</h1>
+        <form action="/submit" method="post">
+            <input type="text" name="name" placeholder="Your Full Name" required>
+            {% for question in questions %}
+                <label>{{ question.text }}</label>
+                <input type="text" name="question_{{ question.id }}" required>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
+

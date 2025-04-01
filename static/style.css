@@ -1,55 +1,61 @@
 body {
-  background-color: #f4f6f9;
-  font-family: 'Segoe UI', sans-serif;
-}
-form {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-  /* Headings */
-  h1, h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  /* Inputs */
-  input[type="text"],
-  input[type="date"],
-  input[type="number"],
-  input[type="password"],
-  textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-  }
-  
-  /* Buttons */
-  button,
-  input[type="submit"] {
-    background-color: #1a73e8;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-  }
-  
-  button:hover,
-  input[type="submit"]:hover {
-    background-color: #155ab6;
-  }
-  
-  /* Question blocks */
-  .question {
-    margin-bottom: 24px;
-  }
-  
+.form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  color: #002B5B;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px;
+  background-color: #8BC34A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #6fa232;
+}
