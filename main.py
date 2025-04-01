@@ -45,7 +45,6 @@ class Answer(Base):
 Base.metadata.create_all(bind=engine)
 
 # Dependency
-
 def get_db():
     db = SessionLocal()
     try:
@@ -71,26 +70,23 @@ def preload_questions(db: Session):
 # Routes
 @app.get("/")
 def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    db = next(get_db())
+    questions = db.query(Question).all()
+    return templates.TemplateResponse("index.html", {"request": request, "questions": questions})
 
-@app.post("/questions")
-def get_questions(request: Request, name: str = Form(...), db: Session = Depends(get_db)):
+@app.post("/submit")
+async def submit_answers(request: Request, db: Session = Depends(get_db)):
+    form = await request.form()
+    name = form.get("name")
+    if not name:
+        return RedirectResponse("/", status_code=302)
+
     user = db.query(User).filter_by(name=name).first()
     if not user:
         user = User(name=name)
         db.add(user)
         db.commit()
         db.refresh(user)
-
-    questions = db.query(Question).all()
-    return templates.TemplateResponse("questions.html", {"request": request, "user": user, "questions": questions})
-
-@app.post("/submit")
-async def submit_answers(request: Request, db: Session = Depends(get_db), name: str = Form(...)):
-    form = await request.form()
-    user = db.query(User).filter_by(name=name).first()
-    if not user:
-        return RedirectResponse("/", status_code=302)
 
     for key, value in form.items():
         if key.startswith("question_"):
@@ -100,14 +96,14 @@ async def submit_answers(request: Request, db: Session = Depends(get_db), name: 
     db.commit()
     return templates.TemplateResponse("thankyou.html", {"request": request, "name": name})
 
-@app.get("/results")
-def results_page(request: Request):
+@app.get("/results_login")
+def results_login(request: Request):
     return templates.TemplateResponse("results_login.html", {"request": request})
 
 @app.post("/results")
 def view_results(request: Request, code: str = Form(...), db: Session = Depends(get_db)):
     if code != "072823":
-        return RedirectResponse("/", status_code=302)
+        return templates.TemplateResponse("results_login.html", {"request": request, "error": "Invalid code."})
 
     users = db.query(User).all()
     data = []

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Questions</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <title>Questionnaire</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Hi {{ user.name }}, please answer the following questions:</h1>
+  <div class="container">
+    <h1>Client Intake Form</h1>
     <form action="/submit" method="post">
-        <input type="hidden" name="name" value="{{ user.name }}">
-        {% for question in questions %}
-            <label>{{ question.text }}</label><br>
-            <input type="text" name="question_{{ question.id }}" required><br>
-        {% endfor %}
-        <input type="submit" value="Submit Answers">
+      <input type="hidden" name="name" value="{{ user }}">
+      {% for question in questions %}
+        <div class="question-block">
+          <label>{{ question.text }}</label>
+          <input type="text" name="question_{{ question.id }}" required>
+        </div>
+      {% endfor %}
+      <button type="submit">Submit</button>
     </form>
+  </div>
 </body>
 </html>
