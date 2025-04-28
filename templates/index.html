@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Snyder Financial Intake</title>
-  <link rel="stylesheet" href="/static/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Snyder Financial Intake</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="form-wrapper">
-    <h1>Welcome to Snyder Financial Services Client Intake Form</h1>
-    <form action="/questions" method="post">
-      <label for="name">Please enter your full name to begin:</label>
-      <input type="text" name="name" placeholder="Your Full Name" required>
-      <button type="submit">Start</button>
-    </form>
-  </div>
+    <img src="/static/logo.png" alt="Logo" class="logo">
+
+    <div class="container">
+        <h1>Welcome to Snyder Financial Client Intake</h1>
+        <form method="post" action="/questions">
+            <label for="name">Please enter your full name to begin:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Start</button>
+        </form>
+    </div>
 </body>
 </html>
