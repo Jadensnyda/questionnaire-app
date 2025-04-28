@@ -52,20 +52,29 @@ def get_db():
     finally:
         db.close()
 
-# Preload questions (only once)
+# Preload questions (safe auto-update)
 def preload_questions(db: Session):
-    if db.query(Question).count() == 0:
-        questions = [
-            "What is your date of birth?",
-            "What is your occupation?",
-            "Who is your employer?",
-            "How many years of investment experience do you have?",
-            "What are your investment objectives? (e.g. Growth, Income, etc.)",
-            "What is your Net Worth?"
-        ]
-        for q in questions:
-            db.add(Question(text=q))
-        db.commit()
+    # Delete all old questions first
+    db.query(Question).delete()
+    db.commit()
+
+    # Now add fresh updated questions
+    new_questions = [
+        "What is your email address?",
+        "What is your cell-phone number?",
+        "What is your date of birth?",
+        "What is your occupation?",
+        "Who is your employer?",
+        "How many years of investment experience do you have?",
+        "What are your investment objectives? (e.g. Growth, Income, etc.)",
+        "What is your Net Worth?",
+        "Do you have any time limitation on your investment goals?",
+        "Are you interested in life-insurance as well?"
+    ]
+    for q in new_questions:
+        db.add(Question(text=q))
+    db.commit()
+
 
 # Routes
 @app.get("/")
