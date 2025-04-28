@@ -1,28 +1,24 @@
 body {
-  background-color: #0A1D3A; /* deep navy */
+  background-color: #0a1d3b; /* Deep navy */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #ffffff; /* make text white */
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  text-align: center;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background-color: #ffffff; /* white background box */
-  padding: 30px;
+  background-color: #ffffff; /* White box */
+  padding: 40px;
+  margin: 50px auto;
   border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  margin-top: 50px;
-  margin-bottom: 50px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-h1, h2 {
-  color: #0A1D3A; /* navy font inside box */
-  text-align: center;
+h1 {
+  color: #0a1d3b;
+  margin-bottom: 20px;
 }
 
 form {
@@ -30,35 +26,40 @@ form {
   flex-direction: column;
 }
 
+label {
+  margin: 10px 0 5px 0;
+  color: #0a1d3b;
+  font-weight: 600;
+  text-align: left;
+}
+
 input[type="text"],
-input[type="date"],
-input[type="number"],
-select,
-textarea {
+input[type="password"] {
+  padding: 12px;
   margin-bottom: 20px;
-  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
 }
 
 button {
-  background-color: #7CB342; /* nice green */
+  background-color: #78be20;
   color: white;
+  padding: 12px;
   border: none;
-  padding: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
 }
 
 button:hover {
-  background-color: #689F38;
+  background-color: #6aa91a;
 }
 
 .logo {
-  width: 200px;
-  margin: 20px auto;
+  width: 120px;
+  margin: 20px auto 10px auto;
   display: block;
 }
