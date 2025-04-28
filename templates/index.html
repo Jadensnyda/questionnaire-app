@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Snyder Financial Intake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Snyder Financial Client Intake</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <img src="/static/logo.png" alt="Logo" class="logo">
-
-    <div class="container">
+    <div class="logo-container">
+        <img src="/static/logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="form-container">
         <h1>Welcome to Snyder Financial Client Intake</h1>
         <form method="post" action="/questions">
-            <label for="name">Please enter your full name to begin:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="input-group">
+                <label for="name">Please enter your full name to begin:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
             <button type="submit">Start</button>
         </form>
     </div>
