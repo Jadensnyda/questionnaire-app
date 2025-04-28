@@ -1,65 +1,66 @@
 body {
-  background-color: #0a1d3b; /* Deep navy */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b2240; /* Navy */
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo-container {
   text-align: center;
-}
-
-.container {
-  background-color: #ffffff; /* White box */
-  padding: 40px;
-  margin: 50px auto;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-h1 {
-  color: #0a1d3b;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin: 10px 0 5px 0;
-  color: #0a1d3b;
-  font-weight: 600;
-  text-align: left;
-}
-
-input[type="text"],
-input[type="password"] {
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-}
-
-button {
-  background-color: #78be20;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #6aa91a;
+  margin-top: 20px;
 }
 
 .logo {
-  width: 120px;
-  margin: 20px auto 10px auto;
+  width: 150px;
+}
+
+.form-container {
+  background-color: #ffffff; /* White box */
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h1 {
+  color: #0b2240;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
   display: block;
+  margin-bottom: 5px;
+  color: #0b2240; /* Make question text navy */
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #7dbb42; /* Light green */
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #6aaa38; /* Slightly darker green */
 }
