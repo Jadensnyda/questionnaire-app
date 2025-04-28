@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Client Questions</title>
-  <link rel="stylesheet" href="/static/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Questionnaire</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="form-wrapper">
-    <h1>Client Questionnaire</h1>
-    <form action="/submit" method="post">
-      <input type="hidden" name="name" value="{{ user }}">
-      {% for question in questions %}
-        <label>{{ question.text }}</label>
-        <input type="text" name="question_{{ question.id }}" required>
-      {% endfor %}
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <div class="logo-container">
+        <img src="/static/logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="form-container">
+        <h1>Client Questionnaire</h1>
+        <form method="post" action="/submit">
+            <input type="hidden" name="name" value="{{ user }}">
+            {% for question in questions %}
+                <div class="input-group">
+                    <label for="question_{{ question.id }}">{{ question.text }}</label>
+                    <input type="text" id="question_{{ question.id }}" name="question_{{ question.id }}" required>
+                </div>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
